@@ -1,5 +1,6 @@
 import App from '../Components/App.vue';
 import About from '../Components/About.vue';
+import Bookables from "../Components/Bookables/Bookables.vue";
 import { createRouter,createWebHistory} from 'vue-router'
 
 const routes = [
@@ -12,6 +13,11 @@ const routes = [
         'path': '/about',
         'component': About,
         'name': "about"
+    },
+    {
+        'path': '/bookables',
+        'component': Bookables,
+        'name': "bookables"
     }
 ]
 
