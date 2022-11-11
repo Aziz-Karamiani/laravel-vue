@@ -11,6 +11,7 @@
 <body>
 <div class="container">
     <div id="app">
+        <router-view></router-view>
         @yield('content')
     </div>
 </div>
