@@ -1,11 +1,14 @@
 <template>
-    <div class="container">
-        <bookable-list-item :title="this.bookable1.title"
-                            :content="this.bookable1.content"
-                            :price="1000"></bookable-list-item>
-        <bookable-list-item :title="this.bookable2.title"
-                            :content="this.bookable2.content"
-                            :price="2000"></bookable-list-item>
+    <div class="container mt-2">
+        <div class="spinner-border text-secondary" role="status" v-if="loading">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div v-else class="row">
+            <bookable-list-item class="col-md-4" v-for="bookable in bookables"
+                                :title="bookable.title"
+                                :content="bookable.content"
+                                :price="bookable.price"></bookable-list-item>
+        </div>
     </div>
 </template>
 
@@ -18,24 +21,73 @@ export default {
     },
     data() {
         return {
-            bookable1: {
-                "title": "Very cheep villa.",
-                "content": "This is a Very cheep villa.",
-                "price": 15000
-            },
-            bookable2: {
-                "title": "Very cheep villa1.",
-                "content": "This is a Very cheep villa1.",
-                "price": 15000
-            },
+            loading: false,
+            bookables: null
         }
     },
 
     mounted() {
+        this.loading = true;
         setTimeout(() => {
-            this.bookable1.title = "Very expensive villa";
-            this.bookable2.title = "Very expensive villa1";
-        }, 5000)
+            this.bookables = [
+                {
+                    "title": "Very cheep villa.",
+                    "content": "This is a Very cheep villa.",
+                    "price": 15000
+                },
+                {
+                    "title": "Very cheep villa1.",
+                    "content": "This is a Very cheep villa1.",
+                    "price": 15000
+                },
+                {
+                    "title": "Very cheep villa1.",
+                    "content": "This is a Very cheep villa1.",
+                    "price": 15000
+                },
+                {
+                    "title": "Very cheep villa1.",
+                    "content": "This is a Very cheep villa1.",
+                    "price": 15000
+                },
+                {
+                    "title": "Very cheep villa1.",
+                    "content": "This is a Very cheep villa1.",
+                    "price": 15000
+                },
+                {
+                    "title": "Very cheep villa1.",
+                    "content": "This is a Very cheep villa1.",
+                    "price": 15000
+                },
+                {
+                    "title": "Very cheep villa1.",
+                    "content": "This is a Very cheep villa1.",
+                    "price": 15000
+                },
+                {
+                    "title": "Very cheep villa1.",
+                    "content": "This is a Very cheep villa1.",
+                    "price": 15000
+                },
+                {
+                    "title": "Very cheep villa1.",
+                    "content": "This is a Very cheep villa1.",
+                    "price": 15000
+                },
+                {
+                    "title": "Very cheep villa1.",
+                    "content": "This is a Very cheep villa1.",
+                    "price": 15000
+                },
+                {
+                    "title": "Very cheep villa1.",
+                    "content": "This is a Very cheep villa1.",
+                    "price": 15000
+                }
+            ];
+            this.loading = false;
+        }, 1000)
     }
 }
 </script>

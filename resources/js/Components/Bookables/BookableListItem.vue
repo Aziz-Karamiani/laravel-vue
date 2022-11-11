@@ -1,9 +1,11 @@
 <template>
-    <div class="card m-2">
-        <div class="card-body">
-            <h5 class="card-title">{{ title }}</h5>
-            <p class="card-text">{{ content }}</p>
-            <a href="#" class="btn btn-primary">Book: {{ price }}</a>
+    <div>
+        <div class="card m-1">
+            <div class="card-body">
+                <h5 class="card-title">{{ title }}</h5>
+                <p class="card-text">{{ content }}</p>
+                <a href="#" class="btn btn-primary">Book: {{ price }}</a>
+            </div>
         </div>
     </div>
 </template>
