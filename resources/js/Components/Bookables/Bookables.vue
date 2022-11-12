@@ -28,66 +28,10 @@ export default {
 
     mounted() {
         this.loading = true;
-        setTimeout(() => {
-            this.bookables = [
-                {
-                    "title": "Very cheep villa.",
-                    "content": "This is a Very cheep villa.",
-                    "price": 15000
-                },
-                {
-                    "title": "Very cheep villa1.",
-                    "content": "This is a Very cheep villa1.",
-                    "price": 15000
-                },
-                {
-                    "title": "Very cheep villa1.",
-                    "content": "This is a Very cheep villa1.",
-                    "price": 15000
-                },
-                {
-                    "title": "Very cheep villa1.",
-                    "content": "This is a Very cheep villa1.",
-                    "price": 15000
-                },
-                {
-                    "title": "Very cheep villa1.",
-                    "content": "This is a Very cheep villa1.",
-                    "price": 15000
-                },
-                {
-                    "title": "Very cheep villa1.",
-                    "content": "This is a Very cheep villa1.",
-                    "price": 15000
-                },
-                {
-                    "title": "Very cheep villa1.",
-                    "content": "This is a Very cheep villa1.",
-                    "price": 15000
-                },
-                {
-                    "title": "Very cheep villa1.",
-                    "content": "This is a Very cheep villa1.",
-                    "price": 15000
-                },
-                {
-                    "title": "Very cheep villa1.",
-                    "content": "This is a Very cheep villa1.",
-                    "price": 15000
-                },
-                {
-                    "title": "Very cheep villa1.",
-                    "content": "This is a Very cheep villa1.",
-                    "price": 15000
-                },
-                {
-                    "title": "Very cheep villa1.",
-                    "content": "This is a Very cheep villa1.",
-                    "price": 15000
-                }
-            ];
+        axios.get('/api/bookables').then(response => {
+            this.bookables = response.data
             this.loading = false;
-        }, 1000)
+        });
     }
 }
 </script>
