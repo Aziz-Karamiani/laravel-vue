@@ -5,9 +5,7 @@
         </div>
         <div v-else class="row">
             <bookable-list-item class="col-md-4" v-for="bookable in bookables"
-                                :title="bookable.title"
-                                :content="bookable.content"
-                                :price="bookable.price"></bookable-list-item>
+                                v-bind="bookable"></bookable-list-item>
         </div>
     </div>
 </template>
