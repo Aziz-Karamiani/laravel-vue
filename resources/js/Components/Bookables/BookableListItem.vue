@@ -4,7 +4,7 @@
             <div class="card-body">
                 <h5 class="card-title">{{ title }}</h5>
                 <p class="card-text">{{ content }}</p>
-                <a href="#" class="btn btn-primary">Book: {{ price }}</a>
+                <a href="#" class="btn btn-primary">Book: {{ price ?? 1000 }}</a>
             </div>
         </div>
     </div>
