@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Bookable;
+use App\Http\Controllers\API\BookablesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,11 +19,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('bookables', function (Request $request){
-   return Bookable::all();
-});
-
-
-Route::get('bookables/{bookable}', function (Request $request, Bookable $bookable){
-    return $bookable;
-});
+Route::get('bookables', [BookablesController::class, 'index']);
+Route::get('bookables/{bookable}', [BookablesController::class, 'show']);
