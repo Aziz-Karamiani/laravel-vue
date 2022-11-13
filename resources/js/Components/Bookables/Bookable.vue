@@ -26,7 +26,7 @@ export default {
 
     mounted() {
         axios.get(`/api/bookables/${this.$route.params.bookable}`).then(response => {
-            this.bookable = response.data
+            this.bookable = response.data.data
         });
     }
 }

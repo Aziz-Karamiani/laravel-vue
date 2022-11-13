@@ -3,25 +3,26 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\BookableShowResource;
 use App\Models\Bookable;
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 class BookablesController extends Controller
 {
     /**
-     * @return Collection
+     * @return AnonymousResourceCollection
      */
     public function index()
     {
-        return Bookable::all();
+        return BookableShowResource::collection(Bookable::all());
     }
 
     /**
      * @param Bookable $bookable
-     * @return Bookable
+     * @return BookableShowResource
      */
     public function show(Bookable $bookable)
     {
-        return $bookable;
+        return new BookableShowResource($bookable);
     }
 }
