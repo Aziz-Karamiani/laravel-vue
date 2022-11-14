@@ -4,13 +4,13 @@
             <div class="card-header">Availability</div>
             <div class="card-body">
                 <form action="#" method="post" class="row">
-                    <div class="col-md-6 mb-1">
+                    <div class="form-group col-md-6 mb-1">
                         <label for="from" class="form-label">From</label>
-                        <input type="text" class="form-control" id="from">
+                        <input type="text" class="form-control form-control-sm" id="from" v-model="from">
                     </div>
-                    <div class="col-md-6 mb-1">
+                    <div class="form-group col-md-6 mb-1">
                         <label for="to" class="form-label">To</label>
-                        <input type="text" class="form-control" id="to">
+                        <input type="text" class="form-control form-control-sm" id="to" v-model="to">
                     </div>
                     <button type="submit" class="btn btn-secondary btn-block m-1 w-100">Checkout</button>
                 </form>
@@ -20,7 +20,14 @@
 </template>
 
 <script>
-export default {}
+export default {
+    data() {
+        return {
+          from: null,
+          to: null
+        }
+    }
+}
 </script>
 
 <style>
