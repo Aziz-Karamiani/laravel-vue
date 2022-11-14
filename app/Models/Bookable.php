@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Bookable extends Model
 {
@@ -13,4 +14,12 @@ class Bookable extends Model
      * @var string[]
      */
     protected $fillable = ['title', 'content'];
+
+    /**
+     * @return HasMany
+     */
+    public function bookings()
+    {
+        return $this->hasMany(Booking::class);
+    }
 }
