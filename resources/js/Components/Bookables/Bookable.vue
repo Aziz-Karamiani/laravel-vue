@@ -1,23 +1,28 @@
 <template>
-    <div class="row">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-body">
-                    <div v-if="bookable !== null">
-                        <h2 class="card-title">{{ bookable.title }}</h2>
+    <div class="container">
+        <div class="row mt-2">
+            <div class="col-md-8">
+                <div class="card" v-if="bookable !== null">
+                    <div class="card-header">{{ bookable.title }}</div>
+                    <div class="card-body">
                         <p class="card-text">{{ bookable.content }}</p>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-4">
-            Availability
+            <div class="col-md-4">
+                <availability></availability>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
+import Availability from "./Availability.vue";
+
 export default {
+    components: {
+      Availability
+    },
     data() {
         return {
             bookable: null,
