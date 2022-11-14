@@ -10,7 +10,7 @@ class Booking extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['from', 'to', 'bookable_id'];
+    protected $fillable = ['from', 'to'];
 
     /**
      * @return BelongsTo
