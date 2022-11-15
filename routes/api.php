@@ -22,4 +22,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('bookables', [BookablesController::class, 'index']);
 Route::get('bookables/{bookable}', [BookablesController::class, 'show']);
-Route::post('bookables/{bookable}/availability', BookableAvailabilityController::class,);
+Route::get('bookables/{bookable}/availability', BookableAvailabilityController::class,);
