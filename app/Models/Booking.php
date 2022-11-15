@@ -19,4 +19,15 @@ class Booking extends Model
     {
         return $this->belongsTo(Bookable::class);
     }
+
+    /**
+     * @param $query
+     * @param $from
+     * @param $to
+     * @return int
+     */
+    public function scopeBetweenDates($query, $from, $to)
+    {
+        return $query->where('from', '<=', $to)->where('to', '>=', $from);
+    }
 }
