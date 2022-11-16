@@ -8,6 +8,7 @@
                         <p class="card-text">{{ bookable.content }}</p>
                     </div>
                 </div>
+                <review-list></review-list>
             </div>
             <div class="col-md-4">
                 <availability></availability>
@@ -18,10 +19,12 @@
 
 <script>
 import Availability from "./Availability.vue";
+import ReviewList from "./ReviewList.vue";
 
 export default {
     components: {
-      Availability
+        Availability,
+        ReviewList
     },
     data() {
         return {
