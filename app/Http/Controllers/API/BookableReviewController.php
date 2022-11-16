@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\BookableReviewResource;
 use App\Models\Bookable;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 class BookableReviewController extends Controller
 {
@@ -14,10 +15,10 @@ class BookableReviewController extends Controller
      *
      * @param Request $request
      * @param Bookable $bookable
-     * @return Collection
+     * @return AnonymousResourceCollection
      */
     public function __invoke(Request $request, Bookable $bookable)
     {
-        return $bookable->reviews()->latest()->get();
+        return BookableReviewResource::collection($bookable->reviews()->latest()->get());
     }
 }
