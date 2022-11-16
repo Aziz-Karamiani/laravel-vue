@@ -1,7 +1,7 @@
 <template>
     <div>
-        <h6 class="text-uppercase text-secondary font-weight-bolder">
-            Check Availability
+        <h6 class="text-secondary">
+            <span class="fw-bold">Check Availability</span>
             <span v-if="noAvailability" class="text-danger">(NOT AVAILABLE)</span>
             <span v-if="hasAvailability" class="text-success">(AVAILABLE)</span>
         </h6>

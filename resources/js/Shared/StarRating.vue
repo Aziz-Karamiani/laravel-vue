@@ -48,3 +48,8 @@ export default {
     // }
 };
 </script>
+<style scoped>
+.fa, .far, .fas {
+    color: #ff9200;
+}
+</style>

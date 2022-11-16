@@ -1,9 +1,9 @@
 <template>
     <div class="container">
-        <div class="row mt-2">
+        <div class="row mt-3">
             <div class="col-md-8">
                 <div class="card" v-if="bookable !== null">
-                    <div class="card-header">{{ bookable.title }}</div>
+                    <div class="card-header bg-info text-white fw-bold">{{ bookable.title }}</div>
                     <div class="card-body">
                         <p class="card-text">{{ bookable.content }}</p>
                     </div>
