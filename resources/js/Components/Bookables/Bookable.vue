@@ -8,10 +8,10 @@
                         <p class="card-text">{{ bookable.content }}</p>
                     </div>
                 </div>
-                <review-list></review-list>
+                <review-list :bookable-id="this.$route.params.bookable"></review-list>
             </div>
             <div class="col-md-4">
-                <availability></availability>
+                <availability :bookable-id="this.$route.params.bookable"></availability>
             </div>
         </div>
     </div>
