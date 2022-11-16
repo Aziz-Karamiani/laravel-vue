@@ -15,7 +15,7 @@ class BookableReviewResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'created_at' => $this->created_at,
+            'created_at' => $this->created_at->diffForHumans(),
             'rating' => $this->rating,
             'content' => $this->content,
         ];

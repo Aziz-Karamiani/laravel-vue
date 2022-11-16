@@ -4,7 +4,9 @@
         <div class="border-bottom pt-2" v-for="(review, index) in reviews" :key="index">
             <div class="row">
                 <div class="col-md-6">Review Title</div>
-                <div class="col-md-6">{{ review.rating }}</div>
+                <div class="col-md-6 justify-content-end">
+                    <star-rating :value="review.rating"></star-rating>
+                </div>
             </div>
             <div class="row">
                 <span>{{ review.created_at }}</span>
@@ -17,8 +19,13 @@
 </template>
 
 <script>
+import StarRating from "../../Shared/StarRating.vue";
+
 export default {
     name: "ReviewList",
+    components: {
+      StarRating
+    },
     props: {
         bookableId: String,
     },
