@@ -32,4 +32,12 @@ class Bookable extends Model
     {
         return 0 === $this->bookings()->betweenDates($from, $to)->count();
     }
+
+    /**
+     * @return HasMany
+     */
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
 }
