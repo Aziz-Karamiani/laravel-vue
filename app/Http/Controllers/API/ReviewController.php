@@ -8,6 +8,10 @@ use App\Models\Review;
 
 class ReviewController extends Controller
 {
+    /**
+     * @param Review $review
+     * @return ReviewShowResource
+     */
     public function show(Review $review)
     {
         return new ReviewShowResource($review);

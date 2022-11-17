@@ -32,14 +32,24 @@ export default {
                 rating: 5,
                 content: null
             },
-            existingReview: null
+            existingReview: null,
+            booking: null
         }
     },
     created() {
         axios.get(`/api/reviews/${this.$route.params.review}`)
-            .then(response => this.existingReview = response.data.data)
+            .then(response => {
+                this.existingReview = response.data.data
+            })
             .catch(error => {
-            });
+                if (error.response && error.response.status && error.response.status === 404) {
+                    axios.get(`/api/bookings/review/${this.$route.params.review}`)
+                        .then(response => {
+                            this.booking = response.data
+                        })
+                }
+            }).then(() => {
+        });
     },
     computed: {
         alreadyReviewed() {
