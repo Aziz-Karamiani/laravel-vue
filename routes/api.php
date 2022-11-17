@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\API\BookableReviewController;
 use App\Http\Controllers\API\BookablesController;
+use App\Http\Controllers\API\BookingController;
 use App\Http\Controllers\API\ReviewController;
 use App\Http\Controllers\BookableAvailabilityController;
 use Illuminate\Http\Request;
@@ -27,3 +28,4 @@ Route::get('bookables/{bookable}', [BookablesController::class, 'show']);
 Route::get('bookables/{bookable}/availability', BookableAvailabilityController::class,);
 Route::get('bookables/{bookable}/reviews', BookableReviewController::class);
 Route::apiResource('reviews', ReviewController::class)->only(['show']);
+Route::get('bookings/review/{review}', [BookingController::class, 'show']);

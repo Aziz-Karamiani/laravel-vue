@@ -41,6 +41,15 @@ class Booking extends Model
         return $this->hasOne(Review::class);
     }
 
+    /**
+     * @param $reviewId
+     * @return mixed
+     */
+    public static function getByReviewId($reviewId)
+    {
+        return static::where('review_id', $reviewId)->with('bookable')->first();
+    }
+
     public static function boot()
     {
         parent::boot();
