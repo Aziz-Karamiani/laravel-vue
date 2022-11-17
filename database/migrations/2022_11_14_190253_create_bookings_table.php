@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('bookable_id')->constrained();
             $table->date('from');
             $table->date('to');
+            $table->uuid('review_id');
             $table->timestamps();
         });
     }
