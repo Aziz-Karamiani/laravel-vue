@@ -1,6 +1,7 @@
 import Bookables from "../Components/Bookables/Bookables.vue";
 import Bookable from "../Components/Bookables/Bookable.vue";
-import { createRouter,createWebHistory} from 'vue-router'
+import Review from "../Components/Review/Review.vue";
+import {createRouter, createWebHistory} from 'vue-router'
 
 const routes = [
     {
@@ -12,6 +13,11 @@ const routes = [
         'path': '/bookables/:bookable',
         'component': Bookable,
         'name': "bookable"
+    },
+    {
+        'path': '/reviews/:review',
+        'component': Review,
+        'name': "review"
     }
 ]
 
