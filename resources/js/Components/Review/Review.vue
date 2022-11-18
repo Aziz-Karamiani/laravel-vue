@@ -13,7 +13,7 @@
                 <textarea name="content" id="content" cols="30" rows="10" class="form-control"
                           placeholder="Content...." v-model="review.content"></textarea>
             </div>
-            <button class="btn btn-primary w-100 mt-3">Submit</button>
+            <button class="btn btn-primary w-100 mt-3" @click="submit">Submit</button>
         </div>
     </div>
 </template>
@@ -29,6 +29,7 @@ export default {
     data() {
         return {
             review: {
+                id: null,
                 rating: 5,
                 content: null
             },
@@ -37,7 +38,8 @@ export default {
         }
     },
     created() {
-        axios.get(`/api/reviews/${this.$route.params.review}`)
+        this.review.id = this.$route.params.review;
+        axios.get(`/api/reviews/${this.review.id}`)
             .then(response => {
                 this.existingReview = response.data.data
             })
@@ -54,6 +56,14 @@ export default {
     computed: {
         alreadyReviewed() {
             return this.existingReview !== null;
+        }
+    },
+    methods: {
+        submit() {
+            axios.post(`/api/reviews`, this.review).then(response => {
+
+            }).catch(error => {
+            })
         }
     }
 }

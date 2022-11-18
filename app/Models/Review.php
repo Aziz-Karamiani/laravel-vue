@@ -12,6 +12,11 @@ class Review extends Model
     use HasFactory, HasUuids;
 
     /**
+     * @var string[]
+     */
+    protected $fillable = ['id', 'content', 'rating'];
+
+    /**
      * @return BelongsTo
      */
     public function bookable()
