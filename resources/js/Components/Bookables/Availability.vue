@@ -44,8 +44,8 @@ export default {
     },
     data() {
         return {
-            from: null,
-            to: null,
+            from: this.$store.state.searchQuery.from,
+            to: this.$store.state.searchQuery.from,
             loading: false,
             status: null,
             errors: null
@@ -55,6 +55,11 @@ export default {
         check() {
             this.loading = true;
             this.errors = null;
+
+            this.$store.commit('saveQuery', {
+                from: this.from,
+                to: this.to,
+            })
             axios
                 .get(
                     `/api/bookables/${this.bookableId}/availability?from=${this.from}&to=${this.to}`
