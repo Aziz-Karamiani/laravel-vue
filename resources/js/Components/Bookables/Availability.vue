@@ -56,7 +56,7 @@ export default {
             this.loading = true;
             this.errors = null;
 
-            this.$store.commit('saveQuery', {
+            this.$store.dispatch('saveToLocalStorage', {
                 from: this.from,
                 to: this.to,
             })

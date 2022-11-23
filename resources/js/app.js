@@ -10,5 +10,8 @@ const store = createStore(s);
 createApp({
     components: {
         Index
+    },
+    async beforeCreate() {
+        this.$store.dispatch("getFromLocalStorage");
     }
 }).use(router).use(store).mount("#app");
