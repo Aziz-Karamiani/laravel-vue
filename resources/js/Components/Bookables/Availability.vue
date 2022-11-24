@@ -45,7 +45,7 @@ export default {
     data() {
         return {
             from: this.$store.state.searchQuery.from,
-            to: this.$store.state.searchQuery.from,
+            to: this.$store.state.searchQuery.to,
             loading: false,
             status: null,
             errors: null

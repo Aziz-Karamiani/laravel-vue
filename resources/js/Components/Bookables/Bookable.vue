@@ -11,7 +11,15 @@
                 <review-list :bookable-id="this.$route.params.bookable"></review-list>
             </div>
             <div class="col-md-4">
-                <availability :bookable-id="this.$route.params.bookable" v-on:availability="checkPrice"></availability>
+                <availability :bookable-id="this.$route.params.bookable" v-on:availability="checkPrice"
+                              class="mb-3"></availability>
+                <transition name="fade">
+                    <price-break-down v-if="price" :price="price" class="mb-4"></price-break-down>
+                </transition>
+
+                <transition name="fade">
+                    <button class="btn btn-outline-secondary w-100" v-if="price">Book Now</button>
+                </transition>
             </div>
         </div>
     </div>
@@ -19,16 +27,19 @@
 
 <script>
 import Availability from "./Availability.vue";
+import PriceBreakDown from "./PriceBreakDown.vue";
 import ReviewList from "./ReviewList.vue";
 
 export default {
     components: {
         Availability,
-        ReviewList
+        ReviewList,
+        PriceBreakDown
     },
     data() {
         return {
             bookable: null,
+            price: null,
         }
     },
 
@@ -40,11 +51,32 @@ export default {
 
     methods: {
         checkPrice(availability) {
-            console.log('111111111111', availability);
+            if (!availability) {
+                this.price = null;
+                return;
+            }
+
+            axios
+                .get(
+                    `/api/bookables/${this.bookable.id}/price?from=${this.$store.state.searchQuery.from}&to=${this.$store.state.searchQuery.to}`
+                )
+                .then(response => {
+                    this.price = response.data;
+                })
+                .catch(error => {
+                    console.log(error);
+                });
         }
     }
 }
 </script>
 
-<style>
+<style scoped>
+.fade-enter-active, .fade-leave-active {
+    transition: opacity 0.5s ease;
+}
+
+.fade-enter-from, .fade-leave-to {
+    opacity: 0;
+}
 </style>
