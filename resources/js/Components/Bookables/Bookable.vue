@@ -11,7 +11,7 @@
                 <review-list :bookable-id="this.$route.params.bookable"></review-list>
             </div>
             <div class="col-md-4">
-                <availability :bookable-id="this.$route.params.bookable"></availability>
+                <availability :bookable-id="this.$route.params.bookable" v-on:availability="checkPrice"></availability>
             </div>
         </div>
     </div>
@@ -36,6 +36,12 @@ export default {
         axios.get(`/api/bookables/${this.$route.params.bookable}`).then(response => {
             this.bookable = response.data.data
         });
+    },
+
+    methods: {
+        checkPrice(availability) {
+            console.log('111111111111', availability);
+        }
     }
 }
 </script>

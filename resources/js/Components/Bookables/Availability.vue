@@ -73,7 +73,10 @@ export default {
                     }
                     this.status = error.response.status;
                 })
-                .then(() => (this.loading = false));
+                .then(() => {
+                    this.loading = false;
+                    this.$emit('availability', this.status)
+                });
         },
         errorFor(field) {
             return this.hasErrors && this.errors[field] ? this.errors[field] : null;
