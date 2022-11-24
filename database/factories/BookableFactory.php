@@ -19,6 +19,7 @@ class BookableFactory extends Factory
         return [
             'title' => fake()->city,
             'content' => fake()->text,
+            'price' => rand('100000', '5000000'),
         ];
     }
 }

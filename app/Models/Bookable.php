@@ -13,7 +13,7 @@ class Bookable extends Model
     /**
      * @var string[]
      */
-    protected $fillable = ['title', 'content'];
+    protected $fillable = ['title', 'content', 'price'];
 
     /**
      * @return HasMany
