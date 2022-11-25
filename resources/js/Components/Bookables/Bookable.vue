@@ -20,6 +20,10 @@
                 <transition name="fade">
                     <button class="btn btn-outline-secondary w-100" v-if="price" @click="addToBasket">Book Now</button>
                 </transition>
+
+                <transition name="fade">
+                    <button class="btn btn-outline-secondary w-100 my-2" v-if="price" @click="removeFromBasket">Remove From Basket</button>
+                </transition>
             </div>
         </div>
     </div>
@@ -73,6 +77,9 @@ export default {
                 price: this.price,
                 dates: this.$store.state.searchQuery
             });
+        },
+        removeFromBasket() {
+            this.$store.dispatch('removeFromBasket', this.bookable);
         }
     }
 }

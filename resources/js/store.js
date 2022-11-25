@@ -16,6 +16,9 @@ export default {
         },
         addToBasket(state, payload) {
             state.basket.items.push(payload);
+        },
+        removeFromBasket(state, payload) {
+            state.basket.items = state.basket.items.filter(item => item.bookable.id !== payload.id);
         }
     },
     actions: {
@@ -31,6 +34,9 @@ export default {
         },
         addToBasket(context, payload) {
             context.commit('addToBasket', payload);
+        },
+        removeFromBasket(context, payload) {
+            context.commit('removeFromBasket', payload);
         }
     },
     getters: {

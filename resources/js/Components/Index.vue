@@ -19,7 +19,6 @@
 export default {
     computed: {
         numberOfItemsInBasket() {
-            console.log(this.$store.getters.itemInBasket)
             return this.$store.getters.itemInBasket;
         }
     }
