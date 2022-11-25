@@ -18,6 +18,11 @@ const routes = [
         'path': '/reviews/:review',
         'component': Review,
         'name': "review"
+    },
+    {
+        'path': '/basket',
+        'component': Bookables,
+        'name': "basket"
     }
 ]
 
