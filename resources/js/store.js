@@ -16,10 +16,14 @@ export default {
         },
         addToBasket(state, payload) {
             state.basket.items.push(payload);
+            localStorage.setItem('basket', JSON.stringify(state.basket));
         },
         removeFromBasket(state, payload) {
             state.basket.items = state.basket.items.filter(item => item.bookable.id !== payload.id);
-        }
+        },
+        setBasket(state, payload) {
+            state.basket = payload;
+        },
     },
     actions: {
         saveToLocalStorage(context, payload) {
@@ -34,12 +38,11 @@ export default {
 
             const basket = localStorage.getItem('basket');
             if (basket) {
-                context.commit('addToBasket', JSON.parse(basket));
+                context.commit('setBasket', JSON.parse(basket));
             }
         },
         addToBasket(context, payload) {
             context.commit('addToBasket', payload);
-            localStorage.setItem('basket', JSON.stringify(payload));
         },
         removeFromBasket(context, payload) {
             context.commit('removeFromBasket', payload);
