@@ -1,6 +1,7 @@
 import Bookables from "../Components/Bookables/Bookables.vue";
 import Bookable from "../Components/Bookables/Bookable.vue";
 import Review from "../Components/Review/Review.vue";
+import Basket from "../Components/Basket.vue";
 import {createRouter, createWebHistory} from 'vue-router'
 
 const routes = [
@@ -21,7 +22,7 @@ const routes = [
     },
     {
         'path': '/basket',
-        'component': Bookables,
+        'component': Basket,
         'name': "basket"
     }
 ]
