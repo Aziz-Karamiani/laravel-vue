@@ -25,17 +25,6 @@ class BookablePriceController extends Controller
             ]
         );
 
-        $from = Carbon::parse($data['from']);
-        $to = Carbon::parse($data['to']);
-        $days = $from->diffInDays($to);
-
-        $price = $days * $bookable->price;
-
-        return response()->json([
-            "price" => $price,
-            "breakDown" => [
-                $days => $bookable->price
-            ]
-        ]);
+        return response()->json($bookable->priceFor($data['from'], $data['to']));
     }
 }
