@@ -31,9 +31,15 @@ export default {
             if (lastSearch) {
                 context.commit('saveQuery', JSON.parse(lastSearch));
             }
+
+            const basket = localStorage.getItem('basket');
+            if (basket) {
+                context.commit('addToBasket', JSON.parse(basket));
+            }
         },
         addToBasket(context, payload) {
             context.commit('addToBasket', payload);
+            localStorage.setItem('basket', JSON.stringify(payload));
         },
         removeFromBasket(context, payload) {
             context.commit('removeFromBasket', payload);
