@@ -11,8 +11,8 @@ class BookableAvailabilityController extends Controller
     /**
      * Handle the incoming request.
      *
-     * @param Request $request
-     * @param Bookable $bookable
+     * @param  Request  $request
+     * @param  Bookable  $bookable
      * @return JsonResponse
      */
     public function __invoke(Request $request, Bookable $bookable)
@@ -27,6 +27,5 @@ class BookableAvailabilityController extends Controller
         return $bookable->availableFor($data['from'], $data['to'])
             ? response()->json([])
             : response()->json([], 404);
-
     }
 }

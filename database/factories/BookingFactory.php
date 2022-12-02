@@ -19,6 +19,7 @@ class BookingFactory extends Factory
     {
         $startDate = Carbon::createFromTimeStamp(fake()->dateTimeBetween('-30 days', '+30 days')->getTimestamp());
         $endDate = Carbon::createFromFormat('Y-m-d H:i:s', $startDate)->addDays(rand(1, 14));
+
         return [
             'from' => $startDate,
             'to' => $endDate,

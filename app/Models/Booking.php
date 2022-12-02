@@ -53,7 +53,7 @@ class Booking extends Model
     public static function boot()
     {
         parent::boot();
-        static::creating(function($booking){
+        static::creating(function ($booking) {
             $booking->review_id = Str::uuid();
         });
     }

@@ -13,8 +13,8 @@ class BookableReviewController extends Controller
     /**
      * Handle the incoming request.
      *
-     * @param Request $request
-     * @param Bookable $bookable
+     * @param  Request  $request
+     * @param  Bookable  $bookable
      * @return AnonymousResourceCollection
      */
     public function __invoke(Request $request, Bookable $bookable)

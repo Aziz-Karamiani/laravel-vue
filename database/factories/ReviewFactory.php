@@ -2,8 +2,6 @@
 
 namespace Database\Factories;
 
-use App\Models\Bookable;
-use App\Models\Booking;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -21,8 +19,8 @@ class ReviewFactory extends Factory
     {
         return [
             'id' => Str::uuid(),
-            'content'=> fake()->sentences(5, true),
-            'rating' => rand(1,5)
+            'content' => fake()->sentences(5, true),
+            'rating' => rand(1, 5),
         ];
     }
 }

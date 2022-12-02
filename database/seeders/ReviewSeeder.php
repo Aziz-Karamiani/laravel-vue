@@ -16,9 +16,9 @@ class ReviewSeeder extends Seeder
      */
     public function run()
     {
-        Bookable::all()->each(function (Bookable $bookable){
+        Bookable::all()->each(function (Bookable $bookable) {
             $reviews = collect([]);
-            $bookable->bookings()->each(function (Booking $booking) use ($reviews){
+            $bookable->bookings()->each(function (Booking $booking) use ($reviews) {
                 $review = Review::factory()->make();
                 $review->booking_id = $booking->id;
                 $reviews->push($review);

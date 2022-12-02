@@ -14,7 +14,7 @@ use Illuminate\Http\Response;
 class ReviewController extends Controller
 {
     /**
-     * @param Review $review
+     * @param  Review  $review
      * @return ReviewShowResource
      */
     public function show(Review $review)
@@ -23,7 +23,7 @@ class ReviewController extends Controller
     }
 
     /**
-     * @param Request $request
+     * @param  Request  $request
      * @return Application|ResponseFactory|Response $review
      */
     public function store(Request $request)
@@ -31,13 +31,13 @@ class ReviewController extends Controller
         $data = $request->validate([
             'id' => 'required|size:36|unique:reviews',
             'content' => 'required|min:2',
-            'rating' => 'required|in:1,2,3,4,5'
+            'rating' => 'required|in:1,2,3,4,5',
         ]);
 
         $booking = Booking::getByReviewId($data['id']);
 
-        if (!$booking) {
-            return response(["message" => "Booking not found."], 404);
+        if (! $booking) {
+            return response(['message' => 'Booking not found.'], 404);
         }
 
         $booking->review_id = '';

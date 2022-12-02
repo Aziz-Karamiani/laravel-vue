@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Throwable;
@@ -15,7 +14,8 @@ class AuthController extends Controller
 {
     /**
      * Create User
-     * @param Request $request
+     *
+     * @param  Request  $request
      * @return JsonResponse
      */
     public function create(Request $request)
@@ -26,40 +26,40 @@ class AuthController extends Controller
                 [
                     'name' => 'required',
                     'email' => 'required|email|unique:users,email',
-                    'password' => 'required'
+                    'password' => 'required',
                 ]);
 
             if ($validateUser->fails()) {
                 return response()->json([
                     'status' => false,
                     'message' => 'validation error',
-                    'errors' => $validateUser->errors()
+                    'errors' => $validateUser->errors(),
                 ], 401);
             }
 
             $user = User::create([
                 'name' => $request->name,
                 'email' => $request->email,
-                'password' => Hash::make($request->password)
+                'password' => Hash::make($request->password),
             ]);
 
             return response()->json([
                 'status' => true,
                 'message' => 'User Created Successfully',
-                'token' => $user->createToken("API TOKEN")->plainTextToken
+                'token' => $user->createToken('API TOKEN')->plainTextToken,
             ], 200);
-
         } catch (Throwable $th) {
             return response()->json([
                 'status' => false,
-                'message' => $th->getMessage()
+                'message' => $th->getMessage(),
             ], 500);
         }
     }
 
     /**
      * Login The User
-     * @param Request $request
+     *
+     * @param  Request  $request
      * @return JsonResponse
      */
     public function login(Request $request)
@@ -72,11 +72,11 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return response()->json(["Message" => "Login Successfully"], 200);
+            return response()->json(['Message' => 'Login Successfully'], 200);
         }
 
         return response()->json([
-            'Message' => "Error",
+            'Message' => 'Error',
         ], 401);
     }
 }

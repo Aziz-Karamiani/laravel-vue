@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Bookable;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class BookableSeeder extends Seeder

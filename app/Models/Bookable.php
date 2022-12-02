@@ -56,10 +56,10 @@ class Bookable extends Model
         $price = $days * $this->price;
 
         return [
-            "price" => $price,
-            "breakDown" => [
-                $days => $this->price
-            ]
+            'price' => $price,
+            'breakDown' => [
+                $days => $this->price,
+            ],
         ];
     }
 }

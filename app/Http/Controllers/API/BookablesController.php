@@ -18,7 +18,7 @@ class BookablesController extends Controller
     }
 
     /**
-     * @param Bookable $bookable
+     * @param  Bookable  $bookable
      * @return BookableShowResource
      */
     public function show(Bookable $bookable)
